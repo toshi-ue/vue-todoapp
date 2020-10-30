@@ -22,3 +22,7 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### 参考リンク
+- BootStrapVueはインストールしましたがあくまで整形のために使用。
+  - [Vue.jsにBootstrapを適用させる方法 - Qiita](https://qiita.com/Mitsuzara/items/34d413698d1d88033ec0)
