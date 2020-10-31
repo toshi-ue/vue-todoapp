@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <!-- <Header></Header> -->
+    <Header></Header>
     {{ $data }}
     <h3>TODOs ({{ todoTasks.length }})</h3>
     <Task
@@ -27,7 +27,7 @@
 
 
 <script>
-// import Header from "./components/Header.vue";
+import Header from "./components/Header.vue";
 import Task from "./components/Task.vue";
 export default {
   name: "App",
@@ -42,7 +42,7 @@ export default {
     };
   },
   components: {
-    // Header,
+    Header,
     Task,
   },
   computed: {
