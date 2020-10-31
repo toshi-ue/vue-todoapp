@@ -1,8 +1,19 @@
 <template>
   <li class="list-group-item" v-bind:class="task.completed ? 'done' : 'todo'">
-    {{ task.id }}<br />
-    {{ task.description }}<br />
-    {{ task.completed }}<br />
+    <div class="form-check">
+      <label class="form-check-label">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          name="task"
+          :checked="task.completed"
+        />
+        {{ task.description }}
+      </label>
+    </div>
+    <!-- {{ task.id }}<br /> -->
+    <!-- {{ task.description }}<br /> -->
+    <!-- {{ task.completed }}<br /> -->
   </li>
 </template>
 

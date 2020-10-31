@@ -16,11 +16,21 @@
         v-for="(task, index) in completedTasks"
         :key="index"
       >
-        {{ task.id }}<br />
-        {{ task.description }}<br />
-        {{ task.completed }}<br />
+        <div class="form-check">
+          <label class="form-check-label">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="task"
+              :checked="task.completed"
+            />
+            {{ task.description }}
+          </label>
+        </div>
+        <!-- {{ task.id }}<br /> -->
+        <!-- {{ task.description }}<br /> -->
+        <!-- {{ task.completed }}<br /> -->
       </li>
-      <li></li>
     </ul>
   </div>
 </template>
