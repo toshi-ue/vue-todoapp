@@ -1,20 +1,23 @@
 <template>
   <div id="app">
     <Header></Header>
-    {{ $data }}
+    <pre
+      >{{ $data }}
+    </pre>
     <h3>TODOs ({{ todoTasks.length }})</h3>
     <Task
       v-bind:task="task"
-      v-for="(task, index) in todoTasks"
-      :key="index"
+      v-for="task in todoTasks"
+      :key="task.id"
+      @toggle-checked-value="toggleDone"
     ></Task>
-    <h3>Finished TODOS ({{ completedTasks.length }})</h3>
+    <h3>Finished TODOs ({{ completedTasks.length }})</h3>
     <ul class="list-group">
       <li
         class="list-group-item"
         v-bind:class="task.completed ? 'done' : 'todo'"
-        v-for="(task, index) in completedTasks"
-        :key="index"
+        v-for="task in completedTasks"
+        :key="task.id"
       >
         <div class="form-check">
           <label class="form-check-label">
@@ -22,14 +25,12 @@
               type="checkbox"
               class="form-check-input"
               name="task"
+              v-on:click="toggleDone($event, task.id)"
               :checked="task.completed"
             />
             {{ task.description }}
           </label>
         </div>
-        <!-- {{ task.id }}<br /> -->
-        <!-- {{ task.description }}<br /> -->
-        <!-- {{ task.completed }}<br /> -->
       </li>
     </ul>
   </div>
@@ -61,6 +62,14 @@ export default {
     },
     todoTasks: function () {
       return this.tasks.filter((item) => item.completed == false);
+    },
+  },
+  methods: {
+    toggleDone: function (event, id) {
+      let task = this.tasks.find((item) => item.id == id);
+      if (task) {
+        task.completed = !task.completed;
+      }
     },
   },
 };

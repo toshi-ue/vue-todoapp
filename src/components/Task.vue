@@ -6,14 +6,12 @@
           type="checkbox"
           class="form-check-input"
           name="task"
+          v-on:click="emitReverseCheckedValue($event, task.id)"
           :checked="task.completed"
         />
         {{ task.description }}
       </label>
     </div>
-    <!-- {{ task.id }}<br /> -->
-    <!-- {{ task.description }}<br /> -->
-    <!-- {{ task.completed }}<br /> -->
   </li>
 </template>
 
@@ -26,5 +24,12 @@ export default {
   //     type: Object,
   //   },
   // },
+  methods: {
+    emitReverseCheckedValue: function (event, id) {
+      console.log(this);
+      console.log(event);
+      this.$emit("toggle-checked-value", this.event, id);
+    },
+  },
 };
 </script>
