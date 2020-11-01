@@ -12,6 +12,12 @@
         {{ task.description }}
       </label>
     </div>
+    <div class="trashIcon">
+      <font-awesome-icon
+        v-on:click="emitDeleteTask($event, task.id)"
+        :icon="['fas', 'trash']"
+      />
+    </div>
   </li>
 </template>
 
@@ -26,9 +32,15 @@ export default {
   // },
   methods: {
     emitReverseCheckedValue: function (event, id) {
-      console.log(this);
-      console.log(event);
-      this.$emit("toggle-checked-value", this.event, id);
+      // console.log(this);
+      // console.log(event);
+      this.$emit("toggle-checked-value", event, id);
+    },
+    emitDeleteTask: function (event, id) {
+      // console.log(this);
+      // console.log(event);
+      // console.log(this.event);
+      this.$emit("delete-task", event, id);
     },
   },
 };

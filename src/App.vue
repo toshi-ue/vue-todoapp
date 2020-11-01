@@ -10,6 +10,7 @@
       v-for="task in todoTasks"
       :key="task.id"
       @toggle-checked-value="toggleDone"
+      @delete-task="deleteTask"
     ></Task>
     <h3>Finished TODOs ({{ completedTasks.length }})</h3>
     <ul class="list-group">
@@ -30,6 +31,12 @@
             />
             {{ task.description }}
           </label>
+        </div>
+        <div>
+          <font-awesome-icon
+            v-on:click="deleteTask($event, task.id)"
+            :icon="['fas', 'trash']"
+          />
         </div>
       </li>
     </ul>
@@ -66,9 +73,20 @@ export default {
   },
   methods: {
     toggleDone: function (event, id) {
+      event.stopImmediatePropagation();
       let task = this.tasks.find((item) => item.id == id);
       if (task) {
         task.completed = !task.completed;
+      }
+    },
+    deleteTask: function (event, id) {
+      event.stopImmediatePropagation();
+      console.log(event);
+      console.log(id);
+      let taskIndex = this.tasks.findIndex((item) => item.id == id);
+      console.log(taskIndex);
+      if (taskIndex > -1) {
+        this.$delete(this.tasks, taskIndex);
       }
     },
   },
