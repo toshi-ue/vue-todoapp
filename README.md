@@ -33,3 +33,7 @@ Udemy
 Qiitaリンク
 - BootStrapVueはインストールしましたがあくまで整形のために使用。
   - [Vue.jsにBootstrapを適用させる方法 - Qiita](https://qiita.com/Mitsuzara/items/34d413698d1d88033ec0)
+
+- アイコン
+  - [FortAwesome/vue-fontawesome: Font Awesome 5 Vue component](https://github.com/FortAwesome/vue-fontawesome#introduction)
+  - [Vue.js FontAwesome5を導入する](https://zukucode.com/2018/11/vuejs-fontawesome.html)
