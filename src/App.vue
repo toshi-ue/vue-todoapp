@@ -33,6 +33,13 @@
           </label>
         </div>
         <div>
+          <!-- TODO: taskを編集する機能を作成する1 -->
+          <font-awesome-icon
+            v-on:click="editTask($event, task.id)"
+            :icon="['fas', 'pen']"
+          />
+        </div>
+        <div>
           <font-awesome-icon
             v-on:click="deleteTask($event, task.id)"
             :icon="['fas', 'trash']"
@@ -89,6 +96,8 @@ export default {
         this.$delete(this.tasks, taskIndex);
       }
     },
+    // TODO: taskを編集する機能を作成する2
+    // editTask: function (event, id) {},
   },
 };
 </script>
