@@ -88,12 +88,9 @@ export default {
     },
     deleteTask: function (event, id) {
       event.stopImmediatePropagation();
-      console.log(event);
-      console.log(id);
       let taskIndex = this.tasks.findIndex((item) => item.id == id);
-      console.log(taskIndex);
       if (taskIndex > -1) {
-        this.$delete(this.tasks, taskIndex);
+        this.tasks.splice(taskIndex, 1);
       }
     },
     // TODO: taskを編集する機能を作成する2
