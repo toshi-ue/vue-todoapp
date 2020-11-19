@@ -76,6 +76,7 @@ export default {
     },
     todoTasks: function () {
       return this.tasks.filter((item) => item.completed == false);
+      // fix typo
     },
   },
   methods: {
